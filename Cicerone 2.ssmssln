@@ -1,0 +1,17 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# SQL Server Management Studio Solution File, Format Version 12.00
+Project("{4F2E2C19-372F-40D8-9FA7-9D2138C6997A}") = "Cicerone 2", "Cicerone 2\Cicerone 2.ssmssqlproj", "{C3A55599-D50C-47EB-B3C7-DB4E85C641A8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Default|Default = Default|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C3A55599-D50C-47EB-B3C7-DB4E85C641A8}.Default|Default.ActiveCfg = Default
+		{02A5874D-2519-4D9A-B98D-AFE371FC782E}.Default|Default.ActiveCfg = Default
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

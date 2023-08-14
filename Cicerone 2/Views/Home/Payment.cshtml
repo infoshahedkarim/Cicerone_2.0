@@ -1,0 +1,104 @@
+﻿@model Cicerone_2.Models.payment
+@{
+    ViewBag.Title = "Payment";
+}
+<div class="container-fluid bg-primary py-5 mb-5 hero-header5">
+    <div class="container py-5">
+        <div class="row justify-content-center py-5">
+            <div class="col-lg-10 pt-lg-5 mt-lg-5 text-center">
+                <h1 class="display-3 text-white animated slideInDown">Payment</h1>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb justify-content-center">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item"><a href="#">Booking</a></li>
+                        <li class="breadcrumb-item text-white active" aria-current="page">Payment</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
+    <div class="container">
+        @using (Html.BeginForm("Payment", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <div class=" p-5">
+                <div class="row g-5 align-items-center">
+
+                    <!-- Pills navs -->
+                    <ul class="nav nav-pills nav-justified mb-3" id="ex1" role="tablist">
+                        <li class="nav-item animated slideInDown btn btn-success btn-block text-light">
+                            @Html.ActionLink("Transactions", "Payment", "Home")
+                        </li>
+
+                    </ul>
+                    <!-- Pills navs -->
+                    <!-- Pills content -->
+                    <div class="insidebox">
+                        <div><h1>Confirm your Booking...</h1></div>
+                        <br />
+                        <div><h6 class=" text-primary">You have to give atleast 50% for confirm your booking.</h6></div>
+                        <br />
+                        <form>
+                            <!-- username input -->
+                            <div class="form-outline mb-4">
+                                @* <input type="email" id="loginName" class="form-control" />
+            <label class="form-label" for="loginName">Email or username</label>*@
+                                @Html.TextBoxFor(x => x.payee_Mail, new { @class = "form-control", @placeholder = "Acounts Mail" })
+                            </div>
+                            <span style="color:red">   @Html.ValidationMessageFor(x => x.payee_Mail) </span>
+                            <div class="form-outline mb-4">
+                                @* <input type="email" id="loginName" class="form-control" />
+            <label class="form-label" for="loginName">Email or username</label>*@
+                                @Html.TextBoxFor(x => x.payable, new { @class = "form-control", @placeholder = "Payable Amount" })
+                            </div>
+                            <span style="color:red">   @Html.ValidationMessageFor(x => x.payable) </span>
+
+                            <!-- user mail input -->
+                            <div class="form-outline mb-4">
+                                @* <input type="email" id="loginName" class="form-control" />
+            <label class="form-label" for="loginName">Email or username</label>*@
+                                @Html.TextBoxFor(x => x.due, new { @class = "form-control", @placeholder = "Due Amount" })
+                            </div>
+                            <span style="color:red">   @Html.ValidationMessageFor(x => x.due) </span>
+
+
+                            <!-- user passss input -->
+                            <div class="form-outline mb-4">
+                                <div class="input-group-addon"><span class="glyphicon glyphicon-user"></span></div>
+                                @*<asp:TextBox ID="TextBox1" runat="server" class="form-control" placeholder="Username" required="required"></asp:TextBox>*@
+                                @Html.TextBoxFor(x => x.trans_id, new { @class = "form-control", @placeholder = "Transaction ID" })
+
+                            </div>
+                            <span style="color:red">   @Html.ValidationMessageFor(x => x.trans_id) </span>
+
+                            <div class="form-group">
+                                <p style="color:red">@ViewBag.error</p>
+                            </div>
+                            <div class="form-group">
+                                <p style="color:green">@ViewBag.Message</p>
+                            </div>
+                            @*<button type="submit" class="btn btn-primary btn-block mb-4">Sign in</button>*@
+
+                            <!-- Submit button -->
+                            <div class="form-group">
+                                @*<asp:Button ID="Button1" runat="server" Text="Log In" class="form-control  btn-success" OnClick="Button1_Click" OnClientClick="retrun(passwordmatchfunc())" />*@
+                                <input type="submit" value="Proceed to Confirm " class="btn btn-success btn-block form-control" />
+
+                            </div>
+
+                        </form>
+
+                    </div>
+                </div>
+
+            </div>
+            <!-- Pills content -->
+
+
+
+        }
+    </div>
+</div>

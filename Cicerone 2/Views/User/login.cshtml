@@ -1,0 +1,98 @@
+﻿@model Cicerone_2.Models.db_user
+@{
+    ViewBag.Title = "login";
+}
+
+<div class="container-fluid bg-primary py-5 mb-5 hero-header5">
+    <div class="container py-5">
+        <div class="row justify-content-center py-5">
+            <div class="col-lg-10 pt-lg-5 mt-lg-5 text-center">
+                <h1 class="display-3 text-white animated slideInDown">User Login</h1>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb justify-content-center">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item"><a href="#">Pages</a></li>
+                        <li class="breadcrumb-item text-white active" aria-current="page">User Login</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
+    <div class="container">
+        @using (Html.BeginForm())
+        {
+            <div class=" p-5">
+                <div class="row g-5 align-items-center">
+
+                    <!-- Pills navs -->
+                    <ul class="nav nav-pills nav-justified mb-3 text-light" id="ex1" role="tablist">
+                        <li class="nav-item animated slideInDown btn btn-success btn-block text-light">
+                            @Html.ActionLink(" User Login", "login", "User")
+                        </li>
+                        <li class="nav-item animated slideInDown btn btn-success btn-block text-light">
+                            @Html.ActionLink("Sign Up", "SignUp", "User")
+                        </li>
+
+                    </ul>
+                    <!-- Pills navs -->
+                    <!-- Pills content -->
+                    <div class="insidebox">
+                        <div><h1>User Login</h1></div>
+
+                        <form>
+                            <div class="form-outline mb-4">
+                                <div class="input-group-addon"><span class="glyphicon glyphicon-user"></span></div>
+                                @*<asp:TextBox ID="TextBox1" runat="server" class="form-control" placeholder="Username" required="required"></asp:TextBox>*@
+                                @Html.TextBoxFor(x => x.user_mail, new { @class = "form-control", @placeholder = "Your Email" })
+
+                            </div>
+                            <span style="color:red">   @Html.ValidationMessageFor(x => x.user_mail) </span>
+
+
+                            <div class="form-outline mb-4">
+                                <div class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></div>
+                                @*<asp:TextBox ID="txtpassword" runat="server" class="form-control" placeholder="Password" TextMode="Password" required="required"></asp:TextBox>*@
+                                @Html.PasswordFor(x => x.user_pass, new { @class = "form-control", @placeholder = "Password" })
+
+                            </div>
+                            <span style="color:red">   @Html.ValidationMessageFor(x => x.user_pass) </span>
+
+
+
+
+
+                            <div class="form-group">
+                                @*<asp:Button ID="Button1" runat="server" Text="Log In" class="form-control  btn-success" OnClick="Button1_Click" OnClientClick="retrun(passwordmatchfunc())" />*@
+                                <input type="submit" value="Login" class="btn btn-danger btn-block form-control" />
+
+                            </div>
+
+                            <div class="form-group">
+                                <p style="color:red">@ViewBag.error</p>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+
+            </div>
+            <!-- Pills content -->
+
+
+
+        }
+    </div>
+</div>
+
+<script src="~/Scripts/jquery.validate.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+<script src="~/Scripts/jquery.validate-vsdoc.js"></script>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

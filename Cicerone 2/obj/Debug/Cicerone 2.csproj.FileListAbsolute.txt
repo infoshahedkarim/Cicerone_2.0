@@ -1,0 +1,78 @@
+E:\SD3200\Cicerone 2\Cicerone 2\bin\Cicerone 2.dll.config
+E:\SD3200\Cicerone 2\Cicerone 2\bin\Cicerone 2.dll
+E:\SD3200\Cicerone 2\Cicerone 2\bin\Cicerone 2.pdb
+E:\SD3200\Cicerone 2\Cicerone 2\bin\roslyn\csc.exe
+E:\SD3200\Cicerone 2\Cicerone 2\bin\roslyn\csc.exe.config
+E:\SD3200\Cicerone 2\Cicerone 2\bin\roslyn\csc.rsp
+E:\SD3200\Cicerone 2\Cicerone 2\bin\roslyn\csi.exe
+E:\SD3200\Cicerone 2\Cicerone 2\bin\roslyn\csi.exe.config
+E:\SD3200\Cicerone 2\Cicerone 2\bin\roslyn\csi.rsp
+E:\SD3200\Cicerone 2\Cicerone 2\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\SD3200\Cicerone 2\Cicerone 2\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\SD3200\Cicerone 2\Cicerone 2\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+E:\SD3200\Cicerone 2\Cicerone 2\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\SD3200\Cicerone 2\Cicerone 2\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+E:\SD3200\Cicerone 2\Cicerone 2\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\SD3200\Cicerone 2\Cicerone 2\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\SD3200\Cicerone 2\Cicerone 2\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+E:\SD3200\Cicerone 2\Cicerone 2\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+E:\SD3200\Cicerone 2\Cicerone 2\bin\roslyn\Microsoft.Managed.Core.targets
+E:\SD3200\Cicerone 2\Cicerone 2\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\SD3200\Cicerone 2\Cicerone 2\bin\roslyn\System.AppContext.dll
+E:\SD3200\Cicerone 2\Cicerone 2\bin\roslyn\System.Collections.Immutable.dll
+E:\SD3200\Cicerone 2\Cicerone 2\bin\roslyn\System.Console.dll
+E:\SD3200\Cicerone 2\Cicerone 2\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+E:\SD3200\Cicerone 2\Cicerone 2\bin\roslyn\System.Diagnostics.StackTrace.dll
+E:\SD3200\Cicerone 2\Cicerone 2\bin\roslyn\System.IO.Compression.dll
+E:\SD3200\Cicerone 2\Cicerone 2\bin\roslyn\System.IO.FileSystem.dll
+E:\SD3200\Cicerone 2\Cicerone 2\bin\roslyn\System.IO.FileSystem.Primitives.dll
+E:\SD3200\Cicerone 2\Cicerone 2\bin\roslyn\System.IO.Pipes.AccessControl.dll
+E:\SD3200\Cicerone 2\Cicerone 2\bin\roslyn\System.IO.Pipes.dll
+E:\SD3200\Cicerone 2\Cicerone 2\bin\roslyn\System.Reflection.Metadata.dll
+E:\SD3200\Cicerone 2\Cicerone 2\bin\roslyn\System.Security.AccessControl.dll
+E:\SD3200\Cicerone 2\Cicerone 2\bin\roslyn\System.Security.Claims.dll
+E:\SD3200\Cicerone 2\Cicerone 2\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+E:\SD3200\Cicerone 2\Cicerone 2\bin\roslyn\System.Security.Cryptography.Encoding.dll
+E:\SD3200\Cicerone 2\Cicerone 2\bin\roslyn\System.Security.Cryptography.Primitives.dll
+E:\SD3200\Cicerone 2\Cicerone 2\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+E:\SD3200\Cicerone 2\Cicerone 2\bin\roslyn\System.Security.Principal.Windows.dll
+E:\SD3200\Cicerone 2\Cicerone 2\bin\roslyn\System.Text.Encoding.CodePages.dll
+E:\SD3200\Cicerone 2\Cicerone 2\bin\roslyn\System.ValueTuple.dll
+E:\SD3200\Cicerone 2\Cicerone 2\bin\roslyn\System.Xml.ReaderWriter.dll
+E:\SD3200\Cicerone 2\Cicerone 2\bin\roslyn\System.Xml.XmlDocument.dll
+E:\SD3200\Cicerone 2\Cicerone 2\bin\roslyn\System.Xml.XPath.dll
+E:\SD3200\Cicerone 2\Cicerone 2\bin\roslyn\System.Xml.XPath.XDocument.dll
+E:\SD3200\Cicerone 2\Cicerone 2\bin\roslyn\vbc.exe
+E:\SD3200\Cicerone 2\Cicerone 2\bin\roslyn\vbc.exe.config
+E:\SD3200\Cicerone 2\Cicerone 2\bin\roslyn\vbc.rsp
+E:\SD3200\Cicerone 2\Cicerone 2\bin\roslyn\VBCSCompiler.exe
+E:\SD3200\Cicerone 2\Cicerone 2\bin\roslyn\VBCSCompiler.exe.config
+E:\SD3200\Cicerone 2\Cicerone 2\bin\Antlr3.Runtime.dll
+E:\SD3200\Cicerone 2\Cicerone 2\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+E:\SD3200\Cicerone 2\Cicerone 2\bin\Microsoft.Web.Infrastructure.dll
+E:\SD3200\Cicerone 2\Cicerone 2\bin\Newtonsoft.Json.dll
+E:\SD3200\Cicerone 2\Cicerone 2\bin\System.Web.Helpers.dll
+E:\SD3200\Cicerone 2\Cicerone 2\bin\System.Web.Mvc.dll
+E:\SD3200\Cicerone 2\Cicerone 2\bin\System.Web.Optimization.dll
+E:\SD3200\Cicerone 2\Cicerone 2\bin\System.Web.Razor.dll
+E:\SD3200\Cicerone 2\Cicerone 2\bin\System.Web.WebPages.Deployment.dll
+E:\SD3200\Cicerone 2\Cicerone 2\bin\System.Web.WebPages.dll
+E:\SD3200\Cicerone 2\Cicerone 2\bin\System.Web.WebPages.Razor.dll
+E:\SD3200\Cicerone 2\Cicerone 2\bin\WebGrease.dll
+E:\SD3200\Cicerone 2\Cicerone 2\bin\System.Web.Helpers.xml
+E:\SD3200\Cicerone 2\Cicerone 2\bin\System.Web.Mvc.xml
+E:\SD3200\Cicerone 2\Cicerone 2\bin\System.Web.Optimization.xml
+E:\SD3200\Cicerone 2\Cicerone 2\bin\System.Web.Razor.xml
+E:\SD3200\Cicerone 2\Cicerone 2\bin\System.Web.WebPages.xml
+E:\SD3200\Cicerone 2\Cicerone 2\bin\System.Web.WebPages.Deployment.xml
+E:\SD3200\Cicerone 2\Cicerone 2\bin\System.Web.WebPages.Razor.xml
+E:\SD3200\Cicerone 2\Cicerone 2\bin\Newtonsoft.Json.xml
+E:\SD3200\Cicerone 2\Cicerone 2\bin\Antlr3.Runtime.pdb
+E:\SD3200\Cicerone 2\Cicerone 2\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\SD3200\Cicerone 2\Cicerone 2\obj\Debug\Cicerone 2.csprojAssemblyReference.cache
+E:\SD3200\Cicerone 2\Cicerone 2\obj\Debug\Cicerone 2.csproj.CoreCompileInputs.cache
+E:\SD3200\Cicerone 2\Cicerone 2\obj\Debug\Cicerone 2.csproj.CopyComplete
+E:\SD3200\Cicerone 2\Cicerone 2\obj\Debug\Cicerone 2.dll
+E:\SD3200\Cicerone 2\Cicerone 2\obj\Debug\Cicerone 2.pdb
+E:\SD3200\Cicerone 2\Cicerone 2\bin\EntityFramework.dll
+E:\SD3200\Cicerone 2\Cicerone 2\bin\EntityFramework.xml

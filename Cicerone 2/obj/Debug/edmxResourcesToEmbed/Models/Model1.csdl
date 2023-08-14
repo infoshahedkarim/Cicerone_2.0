@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="cicerone5Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="blog">
+    <Key>
+      <PropertyRef Name="blogs_id" />
+    </Key>
+    <Property Name="blogs_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="package_id" Type="Int32" Nullable="false" />
+    <Property Name="blog_title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="blog_writer" Type="String" MaxLength="80" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="publish_date" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="blog_details" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="blog_ref" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="package" Relationship="Self.FK__blogs__package_i__1DE57479" FromRole="blogs" ToRole="package" />
+  </EntityType>
+  <EntityType Name="booking">
+    <Key>
+      <PropertyRef Name="booking_id" />
+    </Key>
+    <Property Name="booking_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="booking_date" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="booking_amount" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ratings" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="booking_cancellation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="db_admin">
+    <Key>
+      <PropertyRef Name="admin_id" />
+    </Key>
+    <Property Name="admin_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="admin_username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="admin_password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="packages" Relationship="Self.FK__package__admin_i__15502E78" FromRole="db_admin" ToRole="package" />
+  </EntityType>
+  <EntityType Name="db_user">
+    <Key>
+      <PropertyRef Name="useer_id" />
+    </Key>
+    <Property Name="useer_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="user_pass" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="user_mail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="user_contact" Type="Int32" Nullable="false" />
+    <Property Name="user_nid" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="package">
+    <Key>
+      <PropertyRef Name="package_id" />
+    </Key>
+    <Property Name="package_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="admin_id" Type="Int32" Nullable="false" />
+    <Property Name="package_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="package_source" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="package_details" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="package_image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="blogs" Relationship="Self.FK__blogs__package_i__1DE57479" FromRole="package" ToRole="blogs" />
+    <NavigationProperty Name="db_admin" Relationship="Self.FK__package__admin_i__15502E78" FromRole="package" ToRole="db_admin" />
+  </EntityType>
+  <EntityType Name="payment">
+    <Key>
+      <PropertyRef Name="payment_id" />
+    </Key>
+    <Property Name="payment_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="payee_Mail" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="payable" Type="Int32" Nullable="false" />
+    <Property Name="due" Type="Int32" Nullable="false" />
+    <Property Name="trans_id" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="review_rating">
+    <Key>
+      <PropertyRef Name="rr_id" />
+    </Key>
+    <Property Name="rr_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tour_date" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="reviewer_email" Type="String" MaxLength="80" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="review_star" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="review_details" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="tour">
+    <Key>
+      <PropertyRef Name="tour_id" />
+    </Key>
+    <Property Name="tour_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tour_username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="tour_usermail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="tour_date" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="total_destination" Type="String" MaxLength="80" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="tour_details" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <Association Name="FK__blogs__package_i__1DE57479">
+    <End Role="package" Type="Self.package" Multiplicity="1" />
+    <End Role="blogs" Type="Self.blog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="package">
+        <PropertyRef Name="package_id" />
+      </Principal>
+      <Dependent Role="blogs">
+        <PropertyRef Name="package_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__package__admin_i__15502E78">
+    <End Role="db_admin" Type="Self.db_admin" Multiplicity="1" />
+    <End Role="package" Type="Self.package" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="db_admin">
+        <PropertyRef Name="admin_id" />
+      </Principal>
+      <Dependent Role="package">
+        <PropertyRef Name="admin_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="cicerone5Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="blogs" EntityType="Self.blog" />
+    <EntitySet Name="bookings" EntityType="Self.booking" />
+    <EntitySet Name="db_admin" EntityType="Self.db_admin" />
+    <EntitySet Name="db_user" EntityType="Self.db_user" />
+    <EntitySet Name="packages" EntityType="Self.package" />
+    <EntitySet Name="payments" EntityType="Self.payment" />
+    <EntitySet Name="review_rating" EntityType="Self.review_rating" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="tours" EntityType="Self.tour" />
+    <AssociationSet Name="FK__blogs__package_i__1DE57479" Association="Self.FK__blogs__package_i__1DE57479">
+      <End Role="package" EntitySet="packages" />
+      <End Role="blogs" EntitySet="blogs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__package__admin_i__15502E78" Association="Self.FK__package__admin_i__15502E78">
+      <End Role="db_admin" EntitySet="db_admin" />
+      <End Role="package" EntitySet="packages" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

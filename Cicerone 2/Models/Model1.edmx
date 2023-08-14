@@ -1,0 +1,420 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="cicerone5Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="blogs">
+          <Key>
+            <PropertyRef Name="blogs_id" />
+          </Key>
+          <Property Name="blogs_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="package_id" Type="int" Nullable="false" />
+          <Property Name="blog_title" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="blog_writer" Type="nvarchar" MaxLength="80" Nullable="false" />
+          <Property Name="publish_date" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="blog_details" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="blog_ref" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="booking">
+          <Key>
+            <PropertyRef Name="booking_id" />
+          </Key>
+          <Property Name="booking_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="booking_date" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="booking_amount" Type="nvarchar" MaxLength="50" />
+          <Property Name="ratings" Type="nvarchar" MaxLength="50" />
+          <Property Name="booking_cancellation" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="db_admin">
+          <Key>
+            <PropertyRef Name="admin_id" />
+          </Key>
+          <Property Name="admin_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="admin_username" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="admin_password" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="db_user">
+          <Key>
+            <PropertyRef Name="useer_id" />
+          </Key>
+          <Property Name="useer_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="username" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="user_pass" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="user_mail" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="user_contact" Type="int" Nullable="false" />
+          <Property Name="user_nid" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="package">
+          <Key>
+            <PropertyRef Name="package_id" />
+          </Key>
+          <Property Name="package_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="admin_id" Type="int" Nullable="false" />
+          <Property Name="package_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="package_source" Type="nvarchar" MaxLength="50" />
+          <Property Name="package_details" Type="nvarchar" MaxLength="200" />
+          <Property Name="package_image" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="payments">
+          <Key>
+            <PropertyRef Name="payment_id" />
+          </Key>
+          <Property Name="payment_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="payee_Mail" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="payable" Type="int" Nullable="false" />
+          <Property Name="due" Type="int" Nullable="false" />
+          <Property Name="trans_id" Type="nvarchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="review_rating">
+          <Key>
+            <PropertyRef Name="rr_id" />
+          </Key>
+          <Property Name="rr_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tour_date" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="reviewer_email" Type="nvarchar" MaxLength="80" Nullable="false" />
+          <Property Name="review_star" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="review_details" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="tours">
+          <Key>
+            <PropertyRef Name="tour_id" />
+          </Key>
+          <Property Name="tour_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tour_username" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="tour_usermail" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="tour_date" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="total_destination" Type="nvarchar" MaxLength="80" Nullable="false" />
+          <Property Name="tour_details" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <Association Name="FK__blogs__package_i__1DE57479">
+          <End Role="package" Type="Self.package" Multiplicity="1" />
+          <End Role="blogs" Type="Self.blogs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="package">
+              <PropertyRef Name="package_id" />
+            </Principal>
+            <Dependent Role="blogs">
+              <PropertyRef Name="package_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__package__admin_i__15502E78">
+          <End Role="db_admin" Type="Self.db_admin" Multiplicity="1" />
+          <End Role="package" Type="Self.package" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="db_admin">
+              <PropertyRef Name="admin_id" />
+            </Principal>
+            <Dependent Role="package">
+              <PropertyRef Name="admin_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="cicerone5ModelStoreContainer">
+          <EntitySet Name="blogs" EntityType="Self.blogs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="booking" EntityType="Self.booking" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="db_admin" EntityType="Self.db_admin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="db_user" EntityType="Self.db_user" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="package" EntityType="Self.package" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="payments" EntityType="Self.payments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="review_rating" EntityType="Self.review_rating" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tours" EntityType="Self.tours" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__blogs__package_i__1DE57479" Association="Self.FK__blogs__package_i__1DE57479">
+            <End Role="package" EntitySet="package" />
+            <End Role="blogs" EntitySet="blogs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__package__admin_i__15502E78" Association="Self.FK__package__admin_i__15502E78">
+            <End Role="db_admin" EntitySet="db_admin" />
+            <End Role="package" EntitySet="package" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="cicerone5Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="blog">
+          <Key>
+            <PropertyRef Name="blogs_id" />
+          </Key>
+          <Property Name="blogs_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="package_id" Type="Int32" Nullable="false" />
+          <Property Name="blog_title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="blog_writer" Type="String" MaxLength="80" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="publish_date" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="blog_details" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="blog_ref" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="package" Relationship="Self.FK__blogs__package_i__1DE57479" FromRole="blogs" ToRole="package" />
+        </EntityType>
+        <EntityType Name="booking">
+          <Key>
+            <PropertyRef Name="booking_id" />
+          </Key>
+          <Property Name="booking_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="booking_date" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="booking_amount" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ratings" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="booking_cancellation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="db_admin">
+          <Key>
+            <PropertyRef Name="admin_id" />
+          </Key>
+          <Property Name="admin_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="admin_username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="admin_password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="packages" Relationship="Self.FK__package__admin_i__15502E78" FromRole="db_admin" ToRole="package" />
+        </EntityType>
+        <EntityType Name="db_user">
+          <Key>
+            <PropertyRef Name="useer_id" />
+          </Key>
+          <Property Name="useer_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="user_pass" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="user_mail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="user_contact" Type="Int32" Nullable="false" />
+          <Property Name="user_nid" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="package">
+          <Key>
+            <PropertyRef Name="package_id" />
+          </Key>
+          <Property Name="package_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="admin_id" Type="Int32" Nullable="false" />
+          <Property Name="package_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="package_source" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="package_details" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="package_image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="blogs" Relationship="Self.FK__blogs__package_i__1DE57479" FromRole="package" ToRole="blogs" />
+          <NavigationProperty Name="db_admin" Relationship="Self.FK__package__admin_i__15502E78" FromRole="package" ToRole="db_admin" />
+        </EntityType>
+        <EntityType Name="payment">
+          <Key>
+            <PropertyRef Name="payment_id" />
+          </Key>
+          <Property Name="payment_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="payee_Mail" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="payable" Type="Int32" Nullable="false" />
+          <Property Name="due" Type="Int32" Nullable="false" />
+          <Property Name="trans_id" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="review_rating">
+          <Key>
+            <PropertyRef Name="rr_id" />
+          </Key>
+          <Property Name="rr_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tour_date" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="reviewer_email" Type="String" MaxLength="80" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="review_star" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="review_details" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="tour">
+          <Key>
+            <PropertyRef Name="tour_id" />
+          </Key>
+          <Property Name="tour_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tour_username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="tour_usermail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="tour_date" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="total_destination" Type="String" MaxLength="80" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="tour_details" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK__blogs__package_i__1DE57479">
+          <End Role="package" Type="Self.package" Multiplicity="1" />
+          <End Role="blogs" Type="Self.blog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="package">
+              <PropertyRef Name="package_id" />
+            </Principal>
+            <Dependent Role="blogs">
+              <PropertyRef Name="package_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__package__admin_i__15502E78">
+          <End Role="db_admin" Type="Self.db_admin" Multiplicity="1" />
+          <End Role="package" Type="Self.package" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="db_admin">
+              <PropertyRef Name="admin_id" />
+            </Principal>
+            <Dependent Role="package">
+              <PropertyRef Name="admin_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="cicerone5Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="blogs" EntityType="Self.blog" />
+          <EntitySet Name="bookings" EntityType="Self.booking" />
+          <EntitySet Name="db_admin" EntityType="Self.db_admin" />
+          <EntitySet Name="db_user" EntityType="Self.db_user" />
+          <EntitySet Name="packages" EntityType="Self.package" />
+          <EntitySet Name="payments" EntityType="Self.payment" />
+          <EntitySet Name="review_rating" EntityType="Self.review_rating" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="tours" EntityType="Self.tour" />
+          <AssociationSet Name="FK__blogs__package_i__1DE57479" Association="Self.FK__blogs__package_i__1DE57479">
+            <End Role="package" EntitySet="packages" />
+            <End Role="blogs" EntitySet="blogs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__package__admin_i__15502E78" Association="Self.FK__package__admin_i__15502E78">
+            <End Role="db_admin" EntitySet="db_admin" />
+            <End Role="package" EntitySet="packages" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="cicerone5ModelStoreContainer" CdmEntityContainer="cicerone5Entities">
+          <EntitySetMapping Name="blogs">
+            <EntityTypeMapping TypeName="cicerone5Model.blog">
+              <MappingFragment StoreEntitySet="blogs">
+                <ScalarProperty Name="blogs_id" ColumnName="blogs_id" />
+                <ScalarProperty Name="package_id" ColumnName="package_id" />
+                <ScalarProperty Name="blog_title" ColumnName="blog_title" />
+                <ScalarProperty Name="blog_writer" ColumnName="blog_writer" />
+                <ScalarProperty Name="publish_date" ColumnName="publish_date" />
+                <ScalarProperty Name="blog_details" ColumnName="blog_details" />
+                <ScalarProperty Name="blog_ref" ColumnName="blog_ref" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="bookings">
+            <EntityTypeMapping TypeName="cicerone5Model.booking">
+              <MappingFragment StoreEntitySet="booking">
+                <ScalarProperty Name="booking_id" ColumnName="booking_id" />
+                <ScalarProperty Name="booking_date" ColumnName="booking_date" />
+                <ScalarProperty Name="booking_amount" ColumnName="booking_amount" />
+                <ScalarProperty Name="ratings" ColumnName="ratings" />
+                <ScalarProperty Name="booking_cancellation" ColumnName="booking_cancellation" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="db_admin">
+            <EntityTypeMapping TypeName="cicerone5Model.db_admin">
+              <MappingFragment StoreEntitySet="db_admin">
+                <ScalarProperty Name="admin_id" ColumnName="admin_id" />
+                <ScalarProperty Name="admin_username" ColumnName="admin_username" />
+                <ScalarProperty Name="admin_password" ColumnName="admin_password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="db_user">
+            <EntityTypeMapping TypeName="cicerone5Model.db_user">
+              <MappingFragment StoreEntitySet="db_user">
+                <ScalarProperty Name="useer_id" ColumnName="useer_id" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="user_pass" ColumnName="user_pass" />
+                <ScalarProperty Name="user_mail" ColumnName="user_mail" />
+                <ScalarProperty Name="user_contact" ColumnName="user_contact" />
+                <ScalarProperty Name="user_nid" ColumnName="user_nid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="packages">
+            <EntityTypeMapping TypeName="cicerone5Model.package">
+              <MappingFragment StoreEntitySet="package">
+                <ScalarProperty Name="package_id" ColumnName="package_id" />
+                <ScalarProperty Name="admin_id" ColumnName="admin_id" />
+                <ScalarProperty Name="package_name" ColumnName="package_name" />
+                <ScalarProperty Name="package_source" ColumnName="package_source" />
+                <ScalarProperty Name="package_details" ColumnName="package_details" />
+                <ScalarProperty Name="package_image" ColumnName="package_image" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="payments">
+            <EntityTypeMapping TypeName="cicerone5Model.payment">
+              <MappingFragment StoreEntitySet="payments">
+                <ScalarProperty Name="payment_id" ColumnName="payment_id" />
+                <ScalarProperty Name="payee_Mail" ColumnName="payee_Mail" />
+                <ScalarProperty Name="payable" ColumnName="payable" />
+                <ScalarProperty Name="due" ColumnName="due" />
+                <ScalarProperty Name="trans_id" ColumnName="trans_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="review_rating">
+            <EntityTypeMapping TypeName="cicerone5Model.review_rating">
+              <MappingFragment StoreEntitySet="review_rating">
+                <ScalarProperty Name="rr_id" ColumnName="rr_id" />
+                <ScalarProperty Name="tour_date" ColumnName="tour_date" />
+                <ScalarProperty Name="reviewer_email" ColumnName="reviewer_email" />
+                <ScalarProperty Name="review_star" ColumnName="review_star" />
+                <ScalarProperty Name="review_details" ColumnName="review_details" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="cicerone5Model.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tours">
+            <EntityTypeMapping TypeName="cicerone5Model.tour">
+              <MappingFragment StoreEntitySet="tours">
+                <ScalarProperty Name="tour_id" ColumnName="tour_id" />
+                <ScalarProperty Name="tour_username" ColumnName="tour_username" />
+                <ScalarProperty Name="tour_usermail" ColumnName="tour_usermail" />
+                <ScalarProperty Name="tour_date" ColumnName="tour_date" />
+                <ScalarProperty Name="total_destination" ColumnName="total_destination" />
+                <ScalarProperty Name="tour_details" ColumnName="tour_details" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,175 @@
+﻿@model Cicerone_2.Models.package
+@{
+    ViewBag.Title = "create";
+}
+
+<div class="container-fluid bg-primary py-5 mb-5 hero-header5">
+    <div class="container py-5">
+        <div class="row justify-content-center py-5">
+            <div class="col-lg-10 pt-lg-5 mt-lg-5 text-center">
+                <h1 class="display-3 text-white animated slideInDown">Create Package</h1>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb justify-content-center">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item"><a href="#">Pages</a></li>
+                        <li class="breadcrumb-item text-white active" aria-current="page">Create Package</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
+    <div class="container">
+        @using (Html.BeginForm("create", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <div class=" p-5">
+                <div class="row g-5 align-items-center">
+
+
+                    <!-- Pills navs -->
+                    <!-- Pills content -->
+                    <div class="insidebox">
+                        <div><h1>Add Packages</h1></div>
+
+                        <form>
+                            <!-- package name input -->
+                            <div class="form-outline mb-4">
+                                @* <input type="email" id="loginName" class="form-control" />
+                                    <label class="form-label" for="loginName">Email or username</label>*@
+                                @Html.TextBoxFor(x => x.package_name, new { @class = "form-control", @placeholder = "Package Name" })
+                            </div>
+                            <span style="color:red">   @Html.ValidationMessageFor(x => x.package_name) </span>
+
+                            <!-- package det input -->
+                            <div class="form-outline mb-4">
+                                @* <input type="email" id="loginName" class="form-control" />
+                                    <label class="form-label" for="loginName">Email or username</label>*@
+                                @Html.TextBoxFor(x => x.package_details, new { @class = "form-control", @placeholder = "Package details" })
+                            </div>
+                            <span style="color:red">   @Html.ValidationMessageFor(x => x.package_details) </span>
+
+
+
+                            <!-- package name input -->
+                            <div class="form-outline mb-4">
+                                @* <input type="email" id="loginName" class="form-control" />
+                                    <label class="form-label" for="loginName">Email or username</label>*@
+                                @Html.TextBoxFor(x => x.package_source, new { @class = "form-control", @placeholder = "Package source" })
+                            </div>
+                            <span style="color:red">   @Html.ValidationMessageFor(x => x.package_source) </span>
+
+
+
+
+                            <!-- image input -->
+                            <div class="form-outline mb-4">
+                                <input type="file" name="imgfile" id="imgfile" class="form-control" required="required" />
+                                <p class="contact"><label for="name">Image:</label></p>
+
+                            </div>
+
+
+                            <div class="form-group">
+                                <p style="color:red">@ViewBag.error</p>
+                            </div>
+                            @*<button type="submit" class="btn btn-primary btn-block mb-4">Sign in</button>*@
+
+                            <!-- Submit button -->
+                            <div class="form-group">
+                                @*<asp:Button ID="Button1" runat="server" Text="Log In" class="form-control  btn-success" OnClick="Button1_Click" OnClientClick="retrun(passwordmatchfunc())" />*@
+                                <input type="submit" value="Add Package" class="btn btn-success btn-block" />
+
+                            </div>
+
+                        </form>
+
+                    </div>
+                </div>
+
+
+                <div class="tab-pane fade" id="pills-register" role="tabpanel" aria-labelledby="tab-register">
+                    <form>
+                        <div class="text-center mb-3">
+                            <p>Sign up with:</p>
+                            <button type="button" class="btn btn-link btn-floating mx-1">
+                                <i class="fab fa-facebook-f"></i>
+                            </button>
+
+                            <button type="button" class="btn btn-link btn-floating mx-1">
+                                <i class="fab fa-google"></i>
+                            </button>
+
+                            <button type="button" class="btn btn-link btn-floating mx-1">
+                                <i class="fab fa-twitter"></i>
+                            </button>
+
+                            <button type="button" class="btn btn-link btn-floating mx-1">
+                                <i class="fab fa-github"></i>
+                            </button>
+                        </div>
+
+                        <p class="text-center">or:</p>
+
+                        <!-- Name input -->
+                        <div class="form-outline mb-4">
+                            <input type="text" id="registerName" class="form-control" />
+                            <label class="form-label" for="registerName">Name</label>
+                        </div>
+
+                        <!-- Username input -->
+                        <div class="form-outline mb-4">
+                            <input type="text" id="registerUsername" class="form-control" />
+                            <label class="form-label" for="registerUsername">Username</label>
+                        </div>
+
+                        <!-- Email input -->
+                        <div class="form-outline mb-4">
+                            <input type="email" id="registerEmail" class="form-control" />
+                            <label class="form-label" for="registerEmail">Email</label>
+                        </div>
+
+                        <!-- Password input -->
+                        <div class="form-outline mb-4">
+                            <input type="password" id="registerPassword" class="form-control" />
+                            <label class="form-label" for="registerPassword">Password</label>
+                        </div>
+
+                        <!-- Repeat Password input -->
+                        <div class="form-outline mb-4">
+                            <input type="password" id="registerRepeatPassword" class="form-control" />
+                            <label class="form-label" for="registerRepeatPassword">Repeat password</label>
+                        </div>
+
+                        <!-- Checkbox -->
+                        <div class="form-check d-flex justify-content-center mb-4">
+                            <input class="form-check-input me-2" type="checkbox" value="" id="registerCheck" checked
+                                   aria-describedby="registerCheckHelpText" />
+                            <label class="form-check-label" for="registerCheck">
+                                I have read and agree to the terms
+                            </label>
+                        </div>
+
+                        <!-- Submit button -->
+                        <button type="submit" class="btn btn-primary btn-block mb-3">Sign in</button>
+                    </form>
+                </div>
+            </div>
+            <!-- Pills content -->
+
+
+
+        }
+    </div>
+</div>
+
+<script src="~/Scripts/jquery.validate.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+<script src="~/Scripts/jquery.validate-vsdoc.js"></script>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

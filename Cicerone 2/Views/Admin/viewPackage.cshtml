@@ -1,0 +1,68 @@
+﻿@using PagedList.Mvc
+@model  PagedList.IPagedList<Cicerone_2.Models.package>
+
+@{
+    ViewBag.Title = "viewPackage";
+}
+
+<div class="container-fluid bg-primary py-5 mb-5 hero-header5">
+    <div class="container py-5">
+        <div class="row justify-content-center py-5">
+            <div class="col-lg-10 pt-lg-5 mt-lg-5 text-center">
+                <h1 class="display-3 text-white animated slideInDown">Current Packages</h1>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb justify-content-center">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item"><a href="#">Pages</a></li>
+                        <li class="breadcrumb-item text-white active" aria-current="page">Current Packages</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+        <div class="row" style="margin-bottom:40px">
+            @if (Model != null)
+            {
+                foreach (var item in Model)
+                {
+            <div class="col-lg-4 col-md-4" style="height:200px;margin-top:100px">
+                <img src="@Url.Content(item.package_image)" style=" height:100%;width:100% ;border-radius:50px 50px 50px 50px" />
+                <h4 style="color:#808080; font-family:'Arial Rounded MT';text-align:center">@item.package_name</h4>
+                <h6 style="color:#808080; font-family:'Arial Rounded MT';text-align:center">@item.package_details</h6>
+                <div style="margin-left:160px">
+                    @Html.ActionLink("Delete", "Delete", new { id = item.package_id }, new { @class = "btn btn-danger btn-sm" })
+
+                </div>
+            </div>
+
+                }
+            }
+
+        </div>
+
+
+    <div id="container" style="margin-left: 20px">
+        <p></p>
+        <p></p>
+        <div class="pagination" style="margin-left: 400px">
+            Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)
+            of @Model.PageCount   @Html.PagedListPager(Model, page => Url.Action("ViewCategory", new { page }))
+        </div>
+    </div>
+
+
+<script src="~/Scripts/jquery.validate.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+<script src="~/Scripts/jquery.validate-vsdoc.js"></script>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

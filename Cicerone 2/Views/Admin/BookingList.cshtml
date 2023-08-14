@@ -1,0 +1,69 @@
+﻿@using PagedList.Mvc
+@model  PagedList.IPagedList<Cicerone_2.Models.tour>
+@{
+    ViewBag.Title = "User Booking List";
+}
+
+<div class="container-fluid bg-primary py-5 mb-5 hero-header2">
+    <div class="container py-5">
+        <div class="row justify-content-center py-5">
+            <div class="col-lg-10 pt-lg-5 mt-lg-5 text-center">
+                <h1 class="display-3 text-white animated slideInDown">Users Booking</h1>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb justify-content-center">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item"><a href="#">Pages</a></li>
+                        <li class="breadcrumb-item text-white active" aria-current="page">Booking List of Users</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<div class="row" style="margin-bottom:40px">
+    @if (Model != null)
+    {
+        foreach (var item in Model)
+        {
+    <div class="col-lg-4 col-md-4" style="height:200px;margin-top:120px">
+        <h5 style="color:#808080; font-family:'Arial Rounded MT';text-align:center">@item.tour_username</h5>
+        <h5 style="color:#808080; font-family:'Arial Rounded MT';text-align:center">@item.tour_usermail</h5>
+        <h5 style="color:#808080; font-family:'Arial Rounded MT';text-align:center">@item.tour_date</h5>
+        <h5 style="color:#808080; font-family:'Arial Rounded MT';text-align:center">@item.total_destination</h5>
+        <h5 style="color:#808080; font-family:'Arial Rounded MT';text-align:center">@item.tour_details</h5>
+        <div style="margin-left:20px">
+            @Html.ActionLink("Delete", "Delete", new { id = item.tour_id }, new { @class = "btn btn-success form-control" })
+
+        </div>
+    </div>
+
+        }
+    }
+
+</div>
+
+
+<div id="container" style="margin-left: 20px">
+    <p></p>
+    <p></p>
+    <div class="pagination" style="margin-left: 400px">
+        Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)
+        of @Model.PageCount   @Html.PagedListPager(Model, page => Url.Action("ViewCategory", new { page }))
+    </div>
+</div>
+
+
+<script src="~/Scripts/jquery.validate.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+<script src="~/Scripts/jquery.validate-vsdoc.js"></script>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
